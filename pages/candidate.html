@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Candidate Credentials - JobBoard</title>
+
+    <link rel="stylesheet" href="proj.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="proj.html">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                JobBoard
+
+            </a>
+
+        </div>
+
+
+        <ul class="menu">
+
+            <li>
+                <a href="proj.html">Home</a>
+            </li>
+
+            <li>
+                <a href="proj.html#search">Jobs</a>
+            </li>
+
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+
+            <li>
+                <a href="register.html">Register</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+<!-- CANDIDATE CREDENTIALS -->
+
+<main>
+
+    <div class="candidate-container">
+
+
+        <h1>Candidate Credentials</h1>
+
+        <p class="candidate-subtitle">
+
+            Enter your qualifications, skills and experience
+            to help us find jobs that match your profile.
+
+        </p>
+
+
+
+        <form
+            class="candidate-form"
+            action="/candidate"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+
+            <!-- PERSONAL DETAILS -->
+
+            <div class="form-section">
+
+                <h2>
+                    <i class="fa-solid fa-user"></i>
+                    Personal Details
+                </h2>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="location">
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="Enter your location"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EDUCATION AND QUALIFICATIONS -->
+
+            <div class="form-section">
+
+                <h2>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Education & Qualifications
+                </h2>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="qualification">
+                            Highest Qualification
+                        </label>
+
+                        <select
+                            id="qualification"
+                            name="qualification"
+                            required
+                        >
+
+                            <option value="">
+                                Select Qualification
+                            </option>
+
+                            <option value="10th">
+                                10th
+                            </option>
+
+                            <option value="12th">
+                                12th
+                            </option>
+
+                            <option value="diploma">
+                                Diploma
+                            </option>
+
+                            <option value="btech">
+                                B.Tech / B.E.
+                            </option>
+
+                            <option value="bca">
+                                BCA
+                            </option>
+
+                            <option value="bsc">
+                                B.Sc
+                            </option>
+
+                            <option value="mtech">
+                                M.Tech / M.E.
+                            </option>
+
+                            <option value="mca">
+                                MCA
+                            </option>
+
+                            <option value="msc">
+                                M.Sc
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="course">
+                            Degree / Course
+                        </label>
+
+                        <input
+                            type="text"
+                            id="course"
+                            name="course"
+                            placeholder="e.g. Computer Science"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="institution">
+                            College / University
+                        </label>
+
+                        <input
+                            type="text"
+                            id="institution"
+                            name="institution"
+                            placeholder="Enter institution name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="graduationYear">
+                            Graduation Year
+                        </label>
+
+                        <input
+                            type="number"
+                            id="graduationYear"
+                            name="graduationYear"
+                            placeholder="e.g. 2027"
+                            min="1950"
+                            max="2100"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="percentage">
+                            Percentage / CGPA
+                        </label>
+
+                        <input
+                            type="number"
+                            id="percentage"
+                            name="percentage"
+                            placeholder="Enter your percentage"
+                            min="0"
+                            max="100"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="educationType">
+                            Result Type
+                        </label>
+
+                        <select
+                            id="educationType"
+                            name="educationType"
+                        >
+
+                            <option value="percentage">
+                                Percentage
+                            </option>
+
+                            <option value="cgpa">
+                                CGPA
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SKILLS AND EXPERIENCE -->
+
+            <div class="form-section">
+
+                <h2>
+                    <i class="fa-solid fa-code"></i>
+                    Skills & Experience
+                </h2>
+
+
+                <label for="skills">
+                    Technical Skills
+                </label>
+
+                <textarea
+                    id="skills"
+                    name="skills"
+                    placeholder="e.g. Java, HTML, CSS, JavaScript, Python, SQL"
+                    required
+                ></textarea>
+
+
+                <label for="otherSkills">
+                    Other Skills
+                </label>
+
+                <textarea
+                    id="otherSkills"
+                    name="otherSkills"
+                    placeholder="e.g. Communication, Leadership, Teamwork"
+                ></textarea>
+
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="experience">
+                            Experience
+                        </label>
+
+                        <select
+                            id="experience"
+                            name="experience"
+                            required
+                        >
+
+                            <option value="">
+                                Select Experience
+                            </option>
+
+                            <option value="fresher">
+                                Fresher
+                            </option>
+
+                            <option value="0-1">
+                                0 - 1 Year
+                            </option>
+
+                            <option value="1-3">
+                                1 - 3 Years
+                            </option>
+
+                            <option value="3-5">
+                                3 - 5 Years
+                            </option>
+
+                            <option value="5+">
+                                5+ Years
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="jobRole">
+                            Preferred Job Role
+                        </label>
+
+                        <input
+                            type="text"
+                            id="jobRole"
+                            name="jobRole"
+                            placeholder="e.g. Software Developer"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CERTIFICATIONS -->
+
+            <div class="form-section">
+
+                <h2>
+                    <i class="fa-solid fa-certificate"></i>
+                    Certifications
+                </h2>
+
+
+                <label for="certificateName">
+                    Certificate Name
+                </label>
+
+                <input
+                    type="text"
+                    id="certificateName"
+                    name="certificateName"
+                    placeholder="e.g. Java Programming Certificate"
+                >
+
+
+                <label for="issuingOrganization">
+                    Issuing Organization
+                </label>
+
+                <input
+                    type="text"
+                    id="issuingOrganization"
+                    name="issuingOrganization"
+                    placeholder="e.g. Coursera, Udemy, Google"
+                >
+
+
+                <label for="certificateFile">
+                    Upload Certificate
+                </label>
+
+                <input
+                    type="file"
+                    id="certificateFile"
+                    name="certificateFile"
+                    accept="image/*,.pdf"
+                >
+
+                <p class="upload-note">
+
+                    Upload a photo or PDF of your certificate.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- JOB PREFERENCES -->
+
+            <div class="form-section">
+
+                <h2>
+                    <i class="fa-solid fa-briefcase"></i>
+                    Job Preferences
+                </h2>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="preferredLocation">
+                            Preferred Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="preferredLocation"
+                            name="preferredLocation"
+                            placeholder="e.g. Bangalore, Remote"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="jobType">
+                            Preferred Job Type
+                        </label>
+
+                        <select
+                            id="jobType"
+                            name="jobType"
+                        >
+
+                            <option value="">
+                                Select Job Type
+                            </option>
+
+                            <option value="full-time">
+                                Full Time
+                            </option>
+
+                            <option value="part-time">
+                                Part Time
+                            </option>
+
+                            <option value="internship">
+                                Internship
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <label for="expectedSalary">
+                    Expected Salary
+                </label>
+
+                <input
+                    type="text"
+                    id="expectedSalary"
+                    name="expectedSalary"
+                    placeholder="e.g. ₹5,00,000 per year"
+                >
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="candidate-submit"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Save Credentials & Find Matching Jobs
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p class="copyright">
+        © 2026 JobBoard. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script src="candidate.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="proj.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Find Jobs - JobBoard</title>
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="proj.html">
+                <i class="fa-solid fa-briefcase"></i> JobBoard
+            </a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="proj.html">Home</a></li>
+            <li><a href="job.html">Jobs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="account">
+            <a href="login.html" class="login">Login</a>
+            <a href="register.html" class="register">Register</a>
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="search">
+
+        <h2>Find Jobs</h2>
+
+        <p>Search for jobs that match your interests and skills.</p>
+
+        <form id="jobSearchForm">
+
+            <input
+                type="text"
+                id="jobTitle"
+                placeholder="Job Title"
+            >
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Location"
+            >
+
+            <button type="submit">
+                Search Jobs
+            </button>
+
+        </form>
+
+        <div id="results" class="results-container"></div>
+
+    </section>
+
+</main>
+
+
+<script src="jobs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Post a Job</title>
+
+    <link rel="stylesheet" href="proj.css">
+
+</head>
+
+
+<body>
+
+    <div class="post-job-container">
+
+        <h1>Post a Job</h1>
+
+        <p class="post-job-subtitle">
+            Find the right candidate by providing the job details below.
+        </p>
+
+
+        <form class="post-job-form">
+
+
+            <!-- Job Title and Company -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="jobTitle">
+                        Job Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobTitle"
+                        placeholder="Enter job title"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="company">
+                        Company Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="company"
+                        placeholder="Enter company name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Location and Job Type -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter location"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="jobType">
+                        Job Type
+                    </label>
+
+                    <select id="jobType" required>
+
+                        <option value="">
+                            Select Job Type
+                        </option>
+
+                        <option value="full-time">
+                            Full Time
+                        </option>
+
+                        <option value="part-time">
+                            Part Time
+                        </option>
+
+                        <option value="internship">
+                            Internship
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Salary -->
+
+            <label for="salary">
+                Salary
+            </label>
+
+            <input
+                type="text"
+                id="salary"
+                placeholder="Enter salary"
+                required
+            >
+
+
+            <!-- Experience -->
+
+            <label for="experience">
+                Experience Required
+            </label>
+
+            <input
+                type="text"
+                id="experience"
+                placeholder="e.g. 0-2 years"
+                required
+            >
+
+
+            <!-- Qualifications -->
+
+            <label for="qualification">
+                Required Qualifications
+            </label>
+
+            <textarea
+                id="qualification"
+                placeholder="Enter required qualifications"
+                required
+            ></textarea>
+
+
+            <!-- Skills -->
+
+            <label for="skills">
+                Required Skills
+            </label>
+
+            <textarea
+                id="skills"
+                placeholder="e.g. HTML, CSS, JavaScript, Node.js"
+                required
+            ></textarea>
+
+
+            <!-- Job Description -->
+
+            <label for="description">
+                Job Description
+            </label>
+
+            <textarea
+                id="description"
+                placeholder="Describe the job"
+                required
+            ></textarea>
+
+
+            <!-- Submit -->
+
+            <button type="submit">
+                Post Job
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
