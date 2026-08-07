@@ -10,7 +10,7 @@ async function loadJobs() {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/jobs");
+        const response = await fetch("https://job-board-backend-m18v.onrender.com/api/jobs");
 
         const jobs = await response.json();
 
@@ -47,7 +47,7 @@ searchForm.addEventListener("submit", async function(e) {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/jobs");
+        const response = await fetch("https://job-board-backend-m18v.onrender.com/api/jobs");
 
         const jobs = await response.json();
 

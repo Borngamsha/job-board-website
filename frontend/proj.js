@@ -1,6 +1,6 @@
 let jobs = [];
 
-fetch("http://localhost:3000/jobs")
+fetch("https://job-board-backend-ml8v.onrender.com/api/jobs")
     .then(response => response.json())
     .then(data => {
         jobs = data;

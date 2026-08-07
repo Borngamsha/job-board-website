@@ -37,7 +37,7 @@ candidateForm.addEventListener("submit", async function (e) {
     try {
 
         const response = await fetch(
-            "http://localhost:3000/candidate",
+  "https://job-board-backend-ml8v.onrender.com/candidate",
             {
                 method: "POST",
 
