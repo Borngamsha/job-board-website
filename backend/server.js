@@ -242,10 +242,6 @@ app.post("/candidate", (req, res) => {
     });
 
 });
-<<<<<<< HEAD:backend/server.js
-=======
-
->>>>>>> 478fac811379516bf000217e8a54bc311c7b5d66:server.js
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "pages")));
 app.use(express.static(path.join(__dirname, "js")));
