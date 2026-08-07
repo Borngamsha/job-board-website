@@ -242,7 +242,6 @@ app.post("/candidate", (req, res) => {
     });
 
 });
-const path = require("path");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "pages")));
