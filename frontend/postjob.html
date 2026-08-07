@@ -194,6 +194,49 @@
         </form>
 
     </div>
+    </div>
+
+
+<<script>
+document.querySelector(".post-job-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const jobData = {
+        title: document.getElementById("jobTitle").value,
+        company: document.getElementById("company").value,
+        location: document.getElementById("location").value,
+        jobType: document.getElementById("jobType").value,
+        salary: document.getElementById("salary").value,
+        experience: document.getElementById("experience").value,
+        qualification: document.getElementById("qualification").value,
+        skills: document.getElementById("skills").value,
+        description: document.getElementById("description").value
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/api/jobs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(jobData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Job posted successfully!");
+            document.querySelector(".post-job-form").reset();
+        } else {
+            alert(data.message || "Failed to post job.");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Cannot connect to server.");
+    }
+});
+</script>
 
 
 </body>

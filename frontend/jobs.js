@@ -1,122 +1,156 @@
-
-const form = document.getElementById("jobSearchForm");
-const titleInput = document.getElementById("jobTitle");
-const locationInput = document.getElementById("location");
 const results = document.getElementById("results");
-
-let jobs = [];
-
-
-// Get all jobs from backend
-fetch("http://localhost:3000/jobs")
-    .then(response => response.json())
-    .then(data => {
-
-        jobs = data;
-
-        // Check if candidate has matching jobs
-        const savedMatchingJobs =
-            localStorage.getItem("matchingJobs");
-
-        if (savedMatchingJobs) {
-
-            const matchingJobs =
-                JSON.parse(savedMatchingJobs);
-
-            displayJobs(matchingJobs);
-
-            // Remove them after displaying
-            localStorage.removeItem("matchingJobs");
-
-        }
-
-    })
-    .catch(error => {
-
-        console.error(error);
-
-        results.innerHTML =
-            "<p>Unable to load jobs.</p>";
-
-    });
+const searchForm = document.getElementById("jobSearchForm");
 
 
-// Search Jobs
-form.addEventListener("submit", function (e) {
+// Load all jobs when the page opens
+loadJobs();
+
+
+async function loadJobs() {
+
+    try {
+
+        const response = await fetch("http://localhost:5000/api/jobs");
+
+        const jobs = await response.json();
+
+        displayJobs(jobs);
+
+    } catch (error) {
+
+        console.error("Error loading jobs:", error);
+
+        results.innerHTML = `
+            <p>Cannot connect to the server.</p>
+        `;
+    }
+}
+
+
+// Search jobs
+searchForm.addEventListener("submit", async function(e) {
 
     e.preventDefault();
 
-    const title =
-        titleInput.value.toLowerCase().trim();
+    const title = document
+        .getElementById("jobTitle")
+        .value
+        .toLowerCase()
+        .trim();
 
-    const location =
-        locationInput.value.toLowerCase().trim();
-
-
-    const filteredJobs = jobs.filter(job => {
-
-        const jobTitle =
-            job.title.toLowerCase();
-
-        const jobLocation =
-            job.location.toLowerCase();
+    const location = document
+        .getElementById("location")
+        .value
+        .toLowerCase()
+        .trim();
 
 
-        return (
+    try {
 
-            jobTitle.includes(title) &&
+        const response = await fetch("http://localhost:5000/api/jobs");
 
-            jobLocation.includes(location)
-
-        );
-
-    });
+        const jobs = await response.json();
 
 
-    displayJobs(filteredJobs);
+        const filteredJobs = jobs.filter(job => {
+
+            const jobTitle = job.title.toLowerCase();
+            const jobLocation = job.location.toLowerCase();
+
+            return (
+                (!title || jobTitle.includes(title)) &&
+                (!location || jobLocation.includes(location))
+            );
+
+        });
+
+
+        displayJobs(filteredJobs);
+
+    } catch (error) {
+
+        console.error("Search error:", error);
+
+        results.innerHTML = `
+            <p>Cannot connect to the server.</p>
+        `;
+    }
 
 });
 
 
-// Display Jobs Function
-function displayJobs(jobList) {
+// Display jobs
+function displayJobs(jobs) {
 
-    if (jobList.length === 0) {
+    if (jobs.length === 0) {
 
-        results.innerHTML =
-            "<p>No matching jobs found.</p>";
+        results.innerHTML = `
+            <p>No jobs found.</p>
+        `;
 
         return;
-
     }
 
 
-    const cards = jobList.map(job => `
+    results.innerHTML = "";
 
-        <div class="job-card">
+
+    jobs.forEach(job => {
+
+        const jobCard = document.createElement("div");
+
+        jobCard.className = "job-card";
+
+
+        jobCard.innerHTML = `
 
             <h3>${job.title}</h3>
 
             <p>
-                <strong>
-                    ${job.company}
-                </strong>
+                <strong>Company:</strong>
+                ${job.company}
             </p>
 
             <p>
-                📍 ${job.location}
+                <strong>Location:</strong>
+                ${job.location}
             </p>
 
-            <button class="apply-btn">
-                Apply Now
-            </button>
+            <p>
+                <strong>Job Type:</strong>
+                ${job.jobType}
+            </p>
 
-        </div>
+            <p>
+                <strong>Salary:</strong>
+                ${job.salary || "Not specified"}
+            </p>
 
-    `);
+            <p>
+                <strong>Experience:</strong>
+                ${job.experience || "Not specified"}
+            </p>
+
+            <p>
+                <strong>Qualifications:</strong>
+                ${job.qualification || "Not specified"}
+            </p>
+
+            <p>
+                <strong>Skills:</strong>
+                ${job.skills || "Not specified"}
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                ${job.description}
+            </p>
+
+        `;
 
 
-    results.innerHTML =
-        cards.join("");
+        results.appendChild(jobCard);
+
+    });
 
 }

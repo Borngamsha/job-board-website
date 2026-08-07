@@ -1,27 +1,36 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
+const jobSchema = new mongoose.Schema(
     {
-        name: {
+        title: {
             type: String,
             required: true,
             trim: true
         },
 
-        email: {
+        company: {
             type: String,
             required: true,
-            unique: true,
-            lowercase: true,
             trim: true
         },
 
-        password: {
+        location: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+        jobType: {
             type: String,
             required: true
         },
 
-        education: {
+        salary: {
+            type: String,
+            default: ""
+        },
+
+        experience: {
             type: String,
             default: ""
         },
@@ -36,9 +45,9 @@ const userSchema = new mongoose.Schema(
             default: ""
         },
 
-        experience: {
+        description: {
             type: String,
-            default: ""
+            required: true
         }
     },
     {
@@ -46,4 +55,4 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Job", jobSchema);

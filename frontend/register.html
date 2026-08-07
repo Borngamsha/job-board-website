@@ -197,17 +197,25 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const education = document.getElementById("education").value;
+    const qualification = document.getElementById("qualification").value;
+    const skills = document.getElementById("skills").value;
+    const experience = document.getElementById("experience").value;
 
     try {
-        const response = await fetch("http://localhost:3000/api/auth/signup", {
+        const response = await fetch("http://localhost:5000/api/auth/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password
+                name,
+                email,
+                password,
+                education,
+                qualification,
+                skills,
+                experience
             })
         });
 
@@ -217,7 +225,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
             alert("Registration successful!");
             window.location.href = "login.html";
         } else {
-            alert(data.message);
+            alert(data.message || "Registration failed.");
         }
 
     } catch (error) {
