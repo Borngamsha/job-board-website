@@ -1,9 +1,20 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const path = require("path");
+const authRoutes = require("./routes/auth");
+
 
 const app = express();
 const PORT = 3000;
 
+app.use(cors());        // <-- ADD THIS LINE
 app.use(express.json());
+mongoose
+    .connect("mongodb://127.0.0.1:27017/jobboard")
+    .then(() => console.log("MongoDB Connected"))
+    .catch((err) => console.log(err));
+    app.use("/api/auth", authRoutes);
 
 const jobs = [
     {
@@ -231,6 +242,11 @@ app.post("/candidate", (req, res) => {
     });
 
 });
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "pages")));
+app.use(express.static(path.join(__dirname, "js")));
 
 
 
