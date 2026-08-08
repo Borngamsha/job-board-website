@@ -896,3 +896,45 @@ footer hr {
     }
 
 }
+/* Fix Post Job form layout */
+
+.post-job-form {
+    width: 100%;
+}
+
+.post-job-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.post-job-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.post-job-form input,
+.post-job-form select,
+.post-job-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.post-job-form textarea {
+    min-height: 100px;
+}
+
+.post-job-form > label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.post-job-form > input,
+.post-job-form > textarea,
+.post-job-form > select {
+    display: block;
+    width: 100%;
+}
