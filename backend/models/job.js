@@ -9,10 +9,22 @@ const jobSchema = new mongoose.Schema(
         },
 
         company: {
-            type: String,
-            required: true,
-            trim: true
-        },
+    type: String,
+    required: true,
+    trim: true
+},
+
+companyEmail: {
+    type: String,
+    required: true,
+    trim: true
+},
+
+contactNumber: {
+    type: String,
+    required: true,
+    trim: true
+},
 
         location: {
             type: String,

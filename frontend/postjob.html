@@ -60,7 +60,27 @@
                         placeholder="Enter company name"
                         required
                     >
+                     <label for="companyEmail">
+    Company Email
+</label>
 
+<input
+    type="email"
+    id="companyEmail"
+    placeholder="Enter company email"
+    required
+>
+
+<label for="contactNumber">
+    Contact Number
+</label>
+
+<input
+    type="tel"
+    id="contactNumber"
+    placeholder="Enter company contact number"
+    required
+>
                 </div>
 
             </div>
@@ -199,10 +219,12 @@
 document.querySelector(".post-job-form").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    const jobData = {
-        title: document.getElementById("jobTitle").value,
-        company: document.getElementById("company").value,
-        location: document.getElementById("location").value,
+      const jobData = {
+    title: document.getElementById("jobTitle").value,
+    company: document.getElementById("company").value,
+    companyEmail: document.getElementById("companyEmail").value,
+    contactNumber: document.getElementById("contactNumber").value,
+    location: document.getElementById("location").value,
         jobType: document.getElementById("jobType").value,
         salary: document.getElementById("salary").value,
         experience: document.getElementById("experience").value,

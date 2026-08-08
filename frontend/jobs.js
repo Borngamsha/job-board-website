@@ -104,18 +104,27 @@ function displayJobs(jobs) {
 
         jobCard.innerHTML = `
 
-            <h3>${job.title}</h3>
+           <h3>${job.title}</h3>
 
-            <p>
-                <strong>Company:</strong>
-                ${job.company}
-            </p>
+<p>
+    <strong>Company:</strong>
+    ${job.company}
+</p>
 
-            <p>
-                <strong>Location:</strong>
-                ${job.location}
-            </p>
+<p>
+    <strong>Company Email:</strong>
+    ${job.companyEmail}
+</p>
 
+<p>
+    <strong>Contact Number:</strong>
+    ${job.contactNumber}
+</p>
+
+<p>
+    <strong>Location:</strong>
+    ${job.location}
+</p>
             <p>
                 <strong>Job Type:</strong>
                 ${job.jobType}

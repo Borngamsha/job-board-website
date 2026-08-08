@@ -22,12 +22,13 @@ router.get("/", async (req, res) => {
 
 
 // POST A JOB
-// POST A JOB
 router.post("/", async (req, res) => {
     try {
         const {
             title,
             company,
+            companyEmail,
+            contactNumber,
             location,
             jobType,
             salary,
@@ -37,15 +38,17 @@ router.post("/", async (req, res) => {
             description
         } = req.body;
 
-        if (!title || !company || !location || !description) {
+        if (!title || !company || !companyEmail || !contactNumber || !location || !description) {
             return res.status(400).json({
-                message: "Title, company, location and description are required."
+                message: "Title, company, company email, contact number, location and description are required."
             });
         }
 
         const job = await Job.create({
             title,
             company,
+            companyEmail,
+            contactNumber,
             location,
             jobType,
             salary,
